@@ -20,7 +20,12 @@ public class FileImporter<T> {
         String line = "";
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            Boolean firstLine = true; // CSV파일 첫줄은 자료에 대한 설명 + 첫줄 읽으면 발생하는 오류로 인해 첫줄 건너뛰기위한 불리안값
             while ((line = br.readLine()) != null) {
+                if (firstLine) {
+                    firstLine = false;
+                    continue;
+                }
                 // 파싱 전략을 통해 각 줄을 객체로 변환
                 T data = parseStrategy.parse(line);
                 dataList.add(data);  // 변환된 객체를 리스트에 추가
@@ -28,7 +33,6 @@ public class FileImporter<T> {
         } catch (IOException e) {
             e.printStackTrace();  // 파일을 읽는 중 예외 처리
         }
-
         return dataList;  // 리스트 반환
     }
 }

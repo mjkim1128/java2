@@ -5,20 +5,23 @@ public class DailyHealthData {
     private double bloodSugarLevel;
     private double insulinDose;
     private double carbsIntake;
+    private boolean healthCheck; // HealthCheckObserver에 세용될 불리안 변수
 
     public DailyHealthData() {
         this.bloodSugarLevel = 0.0;
         this.carbsIntake = 0.0;
         this.insulinDose = 0.0;
+        this.healthCheck = false;
     }
 
-    public DailyHealthData(String date, double bloodSugarLevel, double insulinDose, double carbsIntake) {
+    public DailyHealthData(String date, double bloodSugarLevel, double insulinDose, double carbsIntake, boolean healthCheck) {
         this.date = date;
         this.bloodSugarLevel = bloodSugarLevel;
         this.insulinDose = insulinDose;
         this.carbsIntake = carbsIntake;
+        this.healthCheck = healthCheck;
     }
-
+    // 이하 게터 세터
     public String getDate() {
         return this.date;
     }
@@ -49,6 +52,14 @@ public class DailyHealthData {
 
     public void setCarbsIntake(double carbsIntake) {
         this.carbsIntake = carbsIntake;
+    }
+
+    public boolean setHealthCheck(){
+        return this.healthCheck;
+    }
+
+    public void getHealthCheck(boolean healthCheck){
+        this.healthCheck = healthCheck;
     }
 
     @Override

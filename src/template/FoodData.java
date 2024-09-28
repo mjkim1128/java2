@@ -13,11 +13,11 @@ public class FoodData {
 
     public FoodData(String name) {
         this.name = name;
-        this.carbs = 0.0;      // 기본 값 설정 (필요 시 수정 가능)
-        this.calories = 0.0;   // 기본 값 설정 (필요 시 수정 가능)
+        this.carbs = 0.0;      // 에러 잡기 위한 초기화값
+        this.calories = 0.0;   // 에러 잡기 위한 초기화값
     }
     
-
+    // 이하 게터 세터
     public String getName() {
         return this.name;
     }
